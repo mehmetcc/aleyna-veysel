@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, MapPin, Clock, Music, GlassWater, Sparkles, Navigation, Car, Hotel, Heart, ChevronDown, CheckCircle } from 'lucide-react';
+import { Calendar, MapPin, Music, GlassWater, Sparkles, Navigation, Hotel, Heart, ChevronDown } from 'lucide-react';
 import RSVPForm from './components/RSVPForm';
 
 export default function App() {
@@ -71,7 +71,9 @@ export default function App() {
             {/* Names */}
             <div className="my-8 md:my-12 animate-fade-in-up">
               <h1 className="font-script text-7xl sm:text-8xl md:text-9xl text-forest-700 leading-tight">
-                Aleyna & Veysel
+                Aleyna <br />
+                <span className="block my-2 text-5xl sm:text-6xl md:text-7xl">&</span>
+                Veysel
               </h1>
               <p className="font-serif italic text-base md:text-xl text-stone-600 tracking-wide mt-2">
                 "En anlamlı anımızı sizinle paylaşmaktan mutluluk duyarız."
@@ -165,8 +167,11 @@ export default function App() {
             <p className="font-sans text-xs tracking-[0.2em] text-stone-500 uppercase">
               Ocak ve Topalan Aileleri adına
             </p>
-            <p className="font-script text-4xl text-forest-700 mt-2">
-              Sevgilerimizle, Aleyna & Veysel
+            <p className="font-serif italic text-lg text-stone-600 mt-4">
+              Sevgilerimizle,
+            </p>
+            <p className="font-script text-4xl text-forest-700 mt-1">
+              Aleyna & Veysel
             </p>
           </div>
         </div>
@@ -187,53 +192,43 @@ export default function App() {
             <div className="w-16 h-[2px] bg-forest-700 mx-auto mt-4"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
-            {[
-              {
-                time: '19:00',
-                title: 'Karşılama & Kokteyl',
-                desc: 'Wyndham Garden Otel fuaye alanında misafirlerimizin karşılanması ve ikramlar eşliğinde açılış kokteyli.',
-                icon: GlassWater
-              },
-              {
-                time: '20:00',
-                title: 'Nikah & Yemek',
-                desc: 'Nikah merasimimiz ve ardından canlı müzik eşliğinde seçkin lezzetlerden oluşan düğün yemeği servisi.',
-                icon: Heart
-              },
-              {
-                time: '21:00',
-                title: 'Dans & Eğlence',
-                desc: 'Çiftimizin ilk dansı ile başlayacak olan, DJ performansı ve sürpriz etkinliklerle dolu kesintisiz eğlence gecesi.',
-                icon: Music
-              }
-            ].map((item, idx) => (
-              <div 
-                key={idx}
-                className="bg-white border border-forest-700/5 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:border-forest-700/10 transition-all duration-500 group flex flex-col justify-between"
-              >
-                <div>
-                  {/* Time Badge */}
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="font-serif text-2xl font-bold text-gold-600 tracking-wider">
+          <div className="max-w-md mx-auto bg-white border border-forest-700/5 rounded-3xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300 relative z-10">
+            <div className="space-y-6">
+              {[
+                {
+                  time: '19:00',
+                  title: 'Kokteyl',
+                  icon: GlassWater
+                },
+                {
+                  time: '20:00',
+                  title: 'Nikah',
+                  icon: Heart
+                },
+                {
+                  time: '21:00',
+                  title: 'Eğlence',
+                  icon: Music
+                }
+              ].map((item, idx) => (
+                <div 
+                  key={idx} 
+                  className="flex items-center gap-6 p-4 rounded-2xl bg-cream-50/50 border border-forest-700/5 hover:border-gold-500/30 transition-all duration-300"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-forest-50 flex items-center justify-center text-forest-700 shrink-0">
+                    <item.icon className="w-6 h-6" />
+                  </div>
+                  <div className="flex-1 text-left">
+                    <span className="font-serif text-lg font-bold text-gold-600 tracking-wider">
                       {item.time}
                     </span>
-                    <div className="w-12 h-12 rounded-xl bg-forest-50 flex items-center justify-center text-forest-700 group-hover:bg-forest-700 group-hover:text-white transition-colors duration-500">
-                      <item.icon className="w-6 h-6" />
-                    </div>
+                    <h3 className="font-serif text-2xl text-forest-700 font-semibold mt-0.5">
+                      {item.title}
+                    </h3>
                   </div>
-                  <h3 className="font-serif text-2xl text-forest-700 mb-3 group-hover:text-gold-600 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="font-sans text-sm text-stone-600 leading-relaxed">
-                    {item.desc}
-                  </p>
                 </div>
-                
-                {/* Visual anchor line decorator */}
-                <div className="w-full h-1 bg-forest-50 group-hover:bg-gold-500/20 mt-6 rounded-full transition-all"></div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
         </div>
@@ -264,25 +259,17 @@ export default function App() {
                 <p className="font-serif italic text-sm text-stone-500 mb-4">Diyarbakır</p>
                 
                 <p className="font-sans text-stone-700 text-sm md:text-base leading-relaxed mb-6">
-                  Elazığ Caddesi No:34, Yenişehir / Diyarbakır adresinde yer alan mekanımız, modern salon mimarisi ve kaliteli hizmet anlayışı ile bizleri bu mutlu günümüzde ağırlayacaktır.
+                  Elazığ Caddesi No:34, Yenişehir / Diyarbakır
                 </p>
               </div>
 
               {/* Transportation detail cards */}
               <div className="space-y-4 pt-4 border-t border-stone-100">
                 <div className="flex gap-3 text-sm">
-                  <Car className="w-5 h-5 text-gold-600 shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-stone-800">Otopark & Vale</p>
-                    <p className="text-stone-500">Davetlilerimiz için otel bünyesinde ücretsiz kapalı otopark ve profesyonel vale hizmeti mevcuttur.</p>
-                  </div>
-                </div>
-
-                <div className="flex gap-3 text-sm">
                   <Navigation className="w-5 h-5 text-gold-600 shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-stone-800">Ulaşım Kolaylığı</p>
-                    <p className="text-stone-500">Şehir merkezindeki konumda bulunup havalimanına 15 dakika, şehirlerarası otogara ise 10 dakika sürüş mesafesindedir.</p>
+                    <p className="font-semibold text-stone-800 text-sm md:text-base">Ulaşım Kolaylığı</p>
+                    <p className="text-stone-500 text-xs md:text-sm">Şehir merkezindeki konumda bulunup havalimanına 15 dakika, şehirlerarası otogara ise 10 dakika sürüş mesafesindedir.</p>
                   </div>
                 </div>
               </div>
@@ -290,7 +277,7 @@ export default function App() {
               {/* Direct Maps Action */}
               <div className="pt-6">
                 <a
-                  href="https://www.google.com/maps/search/?api=1&query=Wyndham+Garden+Diyarbakir"
+                  href="https://maps.app.goo.gl/4ES7rCHe1fb5VgWr5"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-3.5 rounded-xl border border-forest-700 text-forest-700 font-semibold text-sm text-center hover:bg-forest-50 transition-all flex items-center justify-center gap-2 cursor-pointer"

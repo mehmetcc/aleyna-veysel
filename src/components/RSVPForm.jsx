@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Heart, HeartOff, User, Phone, Users, Hotel, MessageSquare, Loader2, Plus, Minus, Check, AlertCircle } from 'lucide-react';
+import { Heart, HeartOff, User, Phone, Hotel, MessageSquare, Loader2, Plus, Minus, Check, AlertCircle } from 'lucide-react';
 
 export default function RSVPForm() {
   const [ad, setAd] = useState('');
   const [soyad, setSoyad] = useState('');
   const [telefon, setTelefon] = useState('');
   const [katilimDurumu, setKatilimDurumu] = useState('Katılıyorum');
-  const [davetliTaraf, setDavetliTaraf] = useState('Gelin Tarafı (Ocak Ailesi)');
   const [kisiSayisi, setKisiSayisi] = useState(1);
   const [konaklama, setKonaklama] = useState('Hayır');
   const [mesaj, setMesaj] = useState('');
@@ -52,7 +51,6 @@ export default function RSVPForm() {
       soyad: soyad.trim(),
       telefon: telefon.trim(),
       katilimDurumu,
-      davetliTaraf,
       kisiSayisi: katilimDurumu === 'Katılıyorum' ? kisiSayisi : 0,
       konaklama,
       mesaj: mesaj.trim()
@@ -98,7 +96,6 @@ export default function RSVPForm() {
             setSoyad('');
             setTelefon('');
             setKatilimDurumu('Katılıyorum');
-            setDavetliTaraf('Gelin Tarafı (Ocak Ailesi)');
             setKisiSayisi(1);
             setKonaklama('Hayır');
             setMesaj('');
@@ -246,47 +243,7 @@ export default function RSVPForm() {
           </div>
         </div>
 
-        {/* Invitation Side */}
-        <div>
-          <label className="block text-xs font-semibold text-forest-900 uppercase tracking-wider mb-3">
-            Kimin Davetlisisiniz? <span className="text-red-500">*</span>
-          </label>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <button
-              type="button"
-              disabled={status === 'submitting'}
-              onClick={() => setDavetliTaraf('Gelin Tarafı (Ocak Ailesi)')}
-              className={`flex items-center justify-between p-4 rounded-xl border transition-all text-left cursor-pointer ${
-                davetliTaraf === 'Gelin Tarafı (Ocak Ailesi)'
-                  ? 'border-forest-700 bg-forest-50/50 ring-1 ring-forest-700'
-                  : 'border-stone-200 hover:bg-stone-50 bg-white'
-              }`}
-            >
-              <div>
-                <p className="font-semibold text-stone-800 text-sm">Gelin Tarafı</p>
-                <p className="text-xs text-stone-500">Ocak Ailesi</p>
-              </div>
-              {davetliTaraf === 'Gelin Tarafı (Ocak Ailesi)' && <Check className="w-5 h-5 text-forest-700 shrink-0" />}
-            </button>
 
-            <button
-              type="button"
-              disabled={status === 'submitting'}
-              onClick={() => setDavetliTaraf('Damat Tarafı (Topalan Ailesi)')}
-              className={`flex items-center justify-between p-4 rounded-xl border transition-all text-left cursor-pointer ${
-                davetliTaraf === 'Damat Tarafı (Topalan Ailesi)'
-                  ? 'border-forest-700 bg-forest-50/50 ring-1 ring-forest-700'
-                  : 'border-stone-200 hover:bg-stone-50 bg-white'
-              }`}
-            >
-              <div>
-                <p className="font-semibold text-stone-800 text-sm">Damat Tarafı</p>
-                <p className="text-xs text-stone-500">Topalan Ailesi</p>
-              </div>
-              {davetliTaraf === 'Damat Tarafı (Topalan Ailesi)' && <Check className="w-5 h-5 text-forest-700 shrink-0" />}
-            </button>
-          </div>
-        </div>
 
         {/* Conditional Attendance Fields */}
         {katilimDurumu === 'Katılıyorum' && (
