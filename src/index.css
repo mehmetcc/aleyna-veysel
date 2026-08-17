@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Allura&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @import "tailwindcss";
 
 @theme {
   --font-serif: "Cormorant Garamond", serif;
-  --font-script: "Great Vibes", cursive;
+  --font-script: "Allura", cursive;
   --font-sans: "Inter", sans-serif;
 
   --color-forest-900: #1b2e26;
