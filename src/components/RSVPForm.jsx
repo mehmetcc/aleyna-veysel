@@ -52,7 +52,7 @@ export default function RSVPForm() {
       telefon: telefon.trim(),
       katilimDurumu,
       kisiSayisi: katilimDurumu === 'Katılıyorum' ? kisiSayisi : 0,
-      konaklama,
+      konaklama: katilimDurumu === 'Katılıyorum' ? konaklama : 'Hayır',
       mesaj: mesaj.trim()
     };
 
@@ -281,46 +281,48 @@ export default function RSVPForm() {
         )}
 
         {/* Accommodation Preference */}
-        <div>
-          <label className="block text-xs font-semibold text-forest-900 uppercase tracking-wider mb-3">
-            Otelde Konaklayacak mısınız?
-          </label>
-          <div className="grid grid-cols-2 gap-4">
-            <button
-              type="button"
-              disabled={status === 'submitting'}
-              onClick={() => setKonaklama('Evet')}
-              className={`flex items-center justify-between p-3 rounded-xl border transition-all text-left cursor-pointer ${
-                konaklama === 'Evet'
-                  ? 'border-forest-700 bg-forest-50/50 ring-1 ring-forest-700'
-                  : 'border-stone-200 hover:bg-stone-50 bg-white'
-              }`}
-            >
-              <div className="flex items-center gap-3">
-                <Hotel className="w-4 h-4 text-stone-500" />
-                <span className="font-semibold text-stone-800 text-sm">Evet</span>
-              </div>
-              {konaklama === 'Evet' && <Check className="w-4 h-4 text-forest-700 shrink-0" />}
-            </button>
+        {katilimDurumu === 'Katılıyorum' && (
+          <div>
+            <label className="block text-xs font-semibold text-forest-900 uppercase tracking-wider mb-3">
+              Otelde Konaklayacak mısınız?
+            </label>
+            <div className="grid grid-cols-2 gap-4">
+              <button
+                type="button"
+                disabled={status === 'submitting'}
+                onClick={() => setKonaklama('Evet')}
+                className={`flex items-center justify-between p-3 rounded-xl border transition-all text-left cursor-pointer ${
+                  konaklama === 'Evet'
+                    ? 'border-forest-700 bg-forest-50/50 ring-1 ring-forest-700'
+                    : 'border-stone-200 hover:bg-stone-50 bg-white'
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <Hotel className="w-4 h-4 text-stone-500" />
+                  <span className="font-semibold text-stone-800 text-sm">Evet</span>
+                </div>
+                {konaklama === 'Evet' && <Check className="w-4 h-4 text-forest-700 shrink-0" />}
+              </button>
 
-            <button
-              type="button"
-              disabled={status === 'submitting'}
-              onClick={() => setKonaklama('Hayır')}
-              className={`flex items-center justify-between p-3 rounded-xl border transition-all text-left cursor-pointer ${
-                konaklama === 'Hayır'
-                  ? 'border-forest-700 bg-forest-50/50 ring-1 ring-forest-700'
-                  : 'border-stone-200 hover:bg-stone-50 bg-white'
-              }`}
-            >
-              <div className="flex items-center gap-3">
-                <Hotel className="w-4 h-4 text-stone-500" />
-                <span className="font-semibold text-stone-800 text-sm">Hayır</span>
-              </div>
-              {konaklama === 'Hayır' && <Check className="w-4 h-4 text-forest-700 shrink-0" />}
-            </button>
+              <button
+                type="button"
+                disabled={status === 'submitting'}
+                onClick={() => setKonaklama('Hayır')}
+                className={`flex items-center justify-between p-3 rounded-xl border transition-all text-left cursor-pointer ${
+                  konaklama === 'Hayır'
+                    ? 'border-forest-700 bg-forest-50/50 ring-1 ring-forest-700'
+                    : 'border-stone-200 hover:bg-stone-50 bg-white'
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <Hotel className="w-4 h-4 text-stone-500" />
+                  <span className="font-semibold text-stone-800 text-sm">Hayır</span>
+                </div>
+                {konaklama === 'Hayır' && <Check className="w-4 h-4 text-forest-700 shrink-0" />}
+              </button>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Message */}
         <div>

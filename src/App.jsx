@@ -164,10 +164,7 @@ export default function App() {
           </p>
           
           <div className="pt-6">
-            <p className="font-sans text-xs tracking-[0.2em] text-stone-500 uppercase">
-              Ocak ve Topalan Aileleri adına
-            </p>
-            <p className="font-serif italic text-lg text-stone-600 mt-4">
+            <p className="font-serif italic text-lg text-stone-600 mt-2">
               Sevgilerimizle,
             </p>
             <p className="font-script text-4xl text-forest-700 mt-1">
